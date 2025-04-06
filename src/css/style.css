@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+}
+
+main {
+  margin: auto;
+}
+
+.game-field {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 50%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  background-color: burlywood;
+  border: black 2px double;
+  border-radius: 10px;
+}
+
+.hole {
+  margin: 10%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  border: black solid 1px;
+  background-color: gray;
+  align-content: center;
+  text-align: center;
+}
+
+.goblin {
+  width: 95%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.goblin:hover {
+  cursor: url("../image/wooden.jpg") 0 0 ;
+}
