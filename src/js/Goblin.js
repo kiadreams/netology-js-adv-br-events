@@ -1,5 +1,4 @@
-class Goblin {
-
+export default class Goblin {
   constructor() {
     this.goblin = this.#createGoblin();
     this.isGoblinVisible = false;
@@ -21,9 +20,10 @@ class Goblin {
   }
 
   #createGoblin() {
-    const goblinImg = document.createElement('img');
-    goblinImg.src = 'image/goblin.png';
-    goblinImg.alt = 'Изоображение гоблина';
+    // const goblinImg = document.createElement('img');
+    const goblinImg = document.createElement('div');
+    // goblinImg.src = 'image/goblin.png';
+    // goblinImg.alt = 'Изоображение гоблина';
     goblinImg.classList.add('goblin');
     return goblinImg;
   }

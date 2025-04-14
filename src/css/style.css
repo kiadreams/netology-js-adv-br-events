@@ -18,6 +18,10 @@ main {
   border-radius: 10px;
 }
 
+.game-field:hover {
+  cursor: url("../image/hammer.png"), auto ;
+}
+
 .hole {
   margin: 10%;
   border-radius: 50%;
@@ -31,14 +35,13 @@ main {
 }
 
 .goblin {
+  background-image: url("../image/goblin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 95%;
-  height: auto;
+  height: 100%;
 }
 
 .hidden {
   display: none;
-}
-
-.goblin:hover {
-  cursor: url("../image/wooden.jpg") 0 0 ;
 }

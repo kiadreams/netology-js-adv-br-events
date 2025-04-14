@@ -1,7 +1,7 @@
-// import GameField from "./GameField";
-// import Goblin from "./Goblin";
+import GameField from './GameField';
+import Goblin from './Goblin';
 
-class Game {
+export default class Game {
   #maxRound = 10;
   #currRound = 0;
   #miss = 0;
@@ -9,11 +9,11 @@ class Game {
   constructor() {
     this.gameField = new GameField();
     this.goblin = new Goblin();
-    this.timer = undefined;
   }
 
   startGame(){
     this.clickOnGoblin = this.clickOnGoblin.bind(this);
+
     this.goblin.addEventListener(this.clickOnGoblin);
     this.#showGoblinTimeout();
   }
@@ -31,7 +31,7 @@ class Game {
 
   #showGoblinTimeout() {
     this.timer = setTimeout(() => {
-      this.goblin.showInField(this.gameField.nextEmptyField);
+      this.goblin.showInField(this.gameField.emptyHole);
       this.#currRound++;
       this.#deleteGoblinTimeout();
     }, (Math.random() + 0.5) * 1000);
@@ -48,17 +48,13 @@ class Game {
   }
 
   #endGame() {
-    this.goblin.hide();
+    // this.goblin.hide();
     console.log('Игра окончена!!!');
     console.log(this.#miss, this.#currRound);
   }
 
   #isGameContinues() {
     this.#miss++;
-    if (this.#currRound >= this.#maxRound || this.#miss === 5) {
-      return false
-    } else {
-      return true;
-    }
+    return !(this.#currRound >= this.#maxRound || this.#miss === 5);
   }
 }
