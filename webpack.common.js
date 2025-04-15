@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   target: "web",
@@ -35,6 +34,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
+          publicPath: 'image/',
           outputPath: 'image/',
         },
       },
@@ -49,8 +49,5 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
-    // new CopyPlugin({
-    //   patterns: [{ from: "src/image", to: "image" }],
-    // }),
   ],
 };

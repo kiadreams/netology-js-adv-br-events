@@ -4,7 +4,8 @@ import Goblin from './Goblin';
 export default class Game {
   #maxRound = 10;
   #currRound = 0;
-  #miss = 0;
+  #currMiss = 0;
+  #maxMiss = 3;
 
   constructor() {
     this.gameField = new GameField();
@@ -39,6 +40,9 @@ export default class Game {
 
   #deleteGoblinTimeout() {
     this.timer = setTimeout(() => {
+      this.goblin.hide();
+      this.#currMiss++;
+      this.gameField.counter.textContent = String(this.#currMiss);
       if (this.#isGameContinues()) {
         this.#showGoblinTimeout();
       } else {
@@ -48,13 +52,16 @@ export default class Game {
   }
 
   #endGame() {
-    // this.goblin.hide();
-    console.log('Игра окончена!!!');
-    console.log(this.#miss, this.#currRound);
+    this.goblin.hide();
+    setTimeout(() => {
+      const text = this.#currMiss === this.#maxMiss ?
+        `Вы проиграли!!!\n- промазали ${this.#currMiss} раза` :
+        'Вы выйграли!!!';
+      alert(text);
+    }, 100);
   }
 
   #isGameContinues() {
-    this.#miss++;
-    return !(this.#currRound >= this.#maxRound || this.#miss === 5);
+    return !(this.#currRound >= this.#maxRound || this.#currMiss === this.#maxMiss);
   }
 }

@@ -4,6 +4,7 @@ export default class GameField {
   #countOfHoles = 4;
 
   constructor() {
+    this.counter = document.querySelector('.counter');
     this.gameField = this.#createGameFields();
     document.querySelector('main').append(this.gameField);
   }
