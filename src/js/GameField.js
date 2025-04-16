@@ -5,6 +5,7 @@ export default class GameField {
 
   constructor() {
     this.counter = document.querySelector('.counter');
+    this.score = document.querySelector('.score');
     this.gameField = this.#createGameFields();
     document.querySelector('main').append(this.gameField);
   }

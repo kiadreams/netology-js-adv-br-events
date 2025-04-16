@@ -5,11 +5,12 @@ export default class Game {
   #maxRound = 10;
   #currRound = 0;
   #currMiss = 0;
-  #maxMiss = 3;
+  #maxMiss = 5;
 
   constructor() {
     this.gameField = new GameField();
     this.goblin = new Goblin();
+    this.score = 0;
   }
 
   startGame(){
@@ -21,8 +22,9 @@ export default class Game {
 
   clickOnGoblin(event) {
     clearTimeout(this.timer);
-    console.log('нажали', event, this);
     this.goblin.hide();
+    this.score++;
+    this.gameField.score.textContent = String(this.score);
     if (this.#isGameContinues()) {
       this.#showGoblinTimeout();
     } else {
@@ -56,7 +58,7 @@ export default class Game {
     setTimeout(() => {
       const text = this.#currMiss === this.#maxMiss ?
         `Вы проиграли!!!\n- промазали ${this.#currMiss} раза` :
-        'Вы выйграли!!!';
+        `Вы победили,\nВаш счёт - ${this.score}`;
       alert(text);
     }, 100);
   }
