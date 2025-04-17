@@ -57,7 +57,7 @@ export default class Game {
     this.goblin.hide();
     setTimeout(() => {
       const text = this.#currMiss === this.#maxMiss ?
-        `Вы проиграли!!!\n- пропустили ${this.#currMiss} гоблинов` :
+        `Вы проиграли!!!\n- ускользнули ${this.#currMiss} гоблинов` :
         `Вы победили,\nВаш счёт - ${this.score}`;
       alert(text);
     }, 100);
