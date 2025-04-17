@@ -20,7 +20,7 @@ export default class Game {
     this.#showGoblinTimeout();
   }
 
-  clickOnGoblin(event) {
+  clickOnGoblin() {
     clearTimeout(this.timer);
     this.goblin.hide();
     this.score++;
@@ -57,7 +57,7 @@ export default class Game {
     this.goblin.hide();
     setTimeout(() => {
       const text = this.#currMiss === this.#maxMiss ?
-        `Вы проиграли!!!\n- промазали ${this.#currMiss} раза` :
+        `Вы проиграли!!!\n- пропустили ${this.#currMiss} гоблинов` :
         `Вы победили,\nВаш счёт - ${this.score}`;
       alert(text);
     }, 100);

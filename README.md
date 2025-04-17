@@ -5,3 +5,4 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/kiadreams/netology-js-adv-br-events)
 
 # netology-js-adv-br-events
+[Страница на Github Pages](https://kiadreams.github.io/netology-js-adv-br-events/)
